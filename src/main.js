@@ -5,7 +5,9 @@ import './registerServiceWorker';
 import router from './router';
 import store from './store';
 import dateFilter from '@/filters/date.filter';
+import currencyFilter from '@/filters/currency.filter';
 import messagePlugin from '@/utils/message.plugin'
+import Loader from '@/components/app/Loader'
 import '/node_modules/materialize-css/dist/js/materialize.min';
 
 import firebase from 'firebase/app';
@@ -16,25 +18,28 @@ Vue.config.productionTip = false;
 Vue.use(Vuelidate);
 Vue.use(messagePlugin);
 Vue.filter('date', dateFilter);
-
+Vue.filter('currency', currencyFilter);
+Vue.component('Loader', Loader);
 // const firebaseConfig = {
-//   apiKey: "AIzaSyDYZ1GTccBy9UnnICPxtxGqrGqk7M0Ysas",
-//   authDomain: "vuecrm-70baf.firebaseapp.com",
-//   projectId: "vuecrm-70baf",
-//   storageBucket: "vuecrm-70baf.appspot.com",
-//   messagingSenderId: "362471118262",
-//   appId: "1:362471118262:web:c691af5f00345caf701d17",
-//   measurementId: "G-MFC30R07CZ"
+//   apiKey: "AIzaSyBeT2TZV1xTJZ4D_Ny8nSdAMNiK9unr69s",
+//   authDomain: "newvuecrm.firebaseapp.com",
+//   projectId: "newvuecrm",
+//   storageBucket: "newvuecrm.appspot.com",
+//   messagingSenderId: "182455846820",
+//   appId: "1:182455846820:web:828ca885b43aceb223e331",
+//   measurementId: "G-ZPFB13VF1D"
 // };
 
 firebase.initializeApp({
-  apiKey: "AIzaSyDYZ1GTccBy9UnnICPxtxGqrGqk7M0Ysas",
-  authDomain: "vuecrm-70baf.firebaseapp.com",
-  projectId: "vuecrm-70baf",
-  storageBucket: "vuecrm-70baf.appspot.com",
-  messagingSenderId: "362471118262",
-  appId: "1:362471118262:web:c691af5f00345caf701d17",
-  measurementId: "G-MFC30R07CZ"
+  apiKey: "AIzaSyBeT2TZV1xTJZ4D_Ny8nSdAMNiK9unr69s",
+  authDomain: "newvuecrm.firebaseapp.com",
+  projectId: "newvuecrm",
+  storageBucket: "newvuecrm.appspot.com",
+  messagingSenderId: "182455846820",
+  appId: "1:182455846820:web:828ca885b43aceb223e331",
+  measurementId: "G-ZPFB13VF1D",
+  databaseURL: "https://newvuecrm-default-rtdb.europe-west1.firebasedatabase.app/"
+
 });
 
 let app;

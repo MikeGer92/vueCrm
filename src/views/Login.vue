@@ -90,7 +90,6 @@ export default {
       }
       try {
         await this.$store.dispatch('login', formData)
-        console.log(formData)
         this.$router.push('/')
       // eslint-disable-next-line no-empty
       } catch (e) {}

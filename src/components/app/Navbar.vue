@@ -16,7 +16,7 @@
             data-target="dropdown"
             ref="dropdown"
         >
-          USER NAME
+          {{ name }}
           <i class="material-icons right">arrow_drop_down</i>
         </a>
 
@@ -47,14 +47,21 @@ export default {
     dropdown: null
   }),
   methods: {
-    logout() {
+    async logout() {
+      await this.$store.dispatch('logout')
       this.$router.push('/login?message=logout')
+    }
+  },
+  computed: {
+    name() {
+      return this.$store.getters.info.name
     }
   },
   mounted() {
     this.interval = setInterval(() => {
       this.date = new Date()
     }, 1000)
+
     // eslint-disable-next-line no-undef
     this.dropdown = M.Dropdown.init(this.$refs.dropdown, { constrainWidth: false})
   },
